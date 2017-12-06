@@ -7,13 +7,10 @@ class Day3 {
   }
 
   def doWork(s: String): Int = {
-//    val lines = s.split(System.getProperty("line.separator")).toList
-//
-//    val linesSums = lines map { line =>
-//      val lineVals = line.split("\\s+").toList.map(_.toInt)
-//      lineVals.max - lineVals.min
-//    }
-//
-//    linesSums.sum
+    // get dimensions of the graph always keeping 1 at the center 1x1, 3x3, 5x5
+    // get coords of one
+    // get coords of the value
+    // measure the difference
+    0
   }
 }
