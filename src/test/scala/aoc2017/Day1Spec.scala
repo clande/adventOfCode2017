@@ -32,9 +32,5 @@ class Day1Spec extends FunSpecLike
     it("should get 9 for 91212129") {
       d.work("91212129") shouldBe 9
     }
-    it("should add up the track") {
-      val x = scala.io.Source.fromFile("input/Day1/track").mkString
-      println(x.map(_.toString.toInt).toList.sum)
-    }
   }
 }
