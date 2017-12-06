@@ -4,19 +4,34 @@ import org.scalatest.{FunSpecLike, Matchers}
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.mockito.MockitoSugar
 
-/**
-  * Created by clande on 12/6/17.
-  */
+
 class Day2Spec extends FunSpecLike
   with MockitoSugar
   with Matchers
   with ScalaFutures {
   describe("doWork") {
+    val x = new Day2
+
+    it("should process the file") {
+      x.getFileAndDoWork
+    }
+
     it("should get 18") {
       val s =
-        """
-          |
-        """.stripMargin
+        """5 1 9 5
+          |7 5 3
+          |2 4 6 8""".stripMargin
+
+      x.doWork(s) shouldBe 18
+    }
+
+    it("should get 1494") {
+      val s =
+        """200 1  9 5
+          |7  500 3
+          |2 4 6  800""".stripMargin
+
+      x.doWork(s) shouldBe (199 + 497 + 798)
     }
   }
 }
