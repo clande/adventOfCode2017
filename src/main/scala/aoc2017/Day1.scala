@@ -22,9 +22,9 @@ class Day1 {
 
     println(s"prev: $prevVal, curr: $currentVal, next: $nextVal, isLasr: $isLastChar")
     (prevVal, currentVal, nextVal, isLastChar) match {
-      case (p, c, n, _) if((p == c) && (c != n)) => c
-      case (p, c, _, l) if((p == c) && l) => c
-      case (_, c, n, l) if((c == n) && l) => c
+      case (p, c, n, true) if((p == c) && (c == n)) => c + c
+      case (_, c, n, true) if(c == n) => c
+      case (p, c, _, _) if(p == c) => c
       case (_,_,_,_) => 0
     }
   }

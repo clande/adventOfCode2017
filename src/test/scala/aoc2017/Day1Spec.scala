@@ -21,10 +21,10 @@ class Day1Spec extends FunSpecLike
       d.work("1111") shouldBe 4
     }
     it("should get 5 for 211112") {
-      d.work("211112") shouldBe 3
+      d.work("211112") shouldBe 5
     }
     it("should get 3 for 23111123") {
-      d.work("23111123") shouldBe 1
+      d.work("23111123") shouldBe 3
     }
     it("should get 0 for 1234") {
       d.work("1234") shouldBe 0
