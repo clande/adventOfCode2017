@@ -5,39 +5,39 @@ import scala.util.control.TailCalls.TailRec
 class Day1 {
   def getFileAndDoWork = {
     val x = scala.io.Source.fromFile("input/Day1/input").mkString
-    println(x)
+//    println(work(x))
     work(x)
   }
 
   def work(x: String): Int = {
-    getTotal(x.toList, 0, x.toList)
+    getTotal(x.toList, 0, -1,  x.toList.head.toString.toInt, "")
   }
 
-  def determineValue(str: List[Char], originalString: List[Char]): Int = {
-    val nextVal = str.tail match {
-      case Nil => originalString.head.toString.toInt
-      case head :: tail => head.toString.toInt
+  def determineValue(prevVal: Int, str: List[Char], firstVal: Int): Int = {
+    val (nextVal, isLastChar) = str.tail match {
+      case Nil => (firstVal, true)
+      case head :: tail => (head.toString.toInt, false)
     }
+    val currentVal = str.head.toString.toInt
 
-    val prevVal = str.head.toString.toInt
-    if (prevVal == nextVal) {
-      println(s"NON-0 prev: $prevVal, next: $nextVal")
-      nextVal
-    } else {
-      println(s"0 prev: $prevVal, next: $nextVal")
-      0
+    println(s"prev: $prevVal, curr: $currentVal, next: $nextVal, isLasr: $isLastChar")
+    (prevVal, currentVal, nextVal, isLastChar) match {
+      case (p, c, n, _) if((p == c) && (c != n)) => c
+      case (p, c, _, l) if((p == c) && l) => c
+      case (_, c, n, l) if((c == n) && l) => c
+      case (_,_,_,_) => 0
     }
   }
 
-  def getTotal(str: List[Char], acc: Int, originalString: List[Char]): Int = {
+  def getTotal(str: List[Char], acc: Int, prev: Int, firstVal: Int, track: String): Int = {
     str match{
       case Nil =>
-        println(s"NIL - str: $str, acc: $acc")
+        println(track)
         acc
-      case _ =>
-        val value = determineValue(str, originalString)
-        println(s"NOTNIL - str: $str, acc: $acc, value: $value")
-        getTotal(str.tail, acc + value, originalString)
+      case head :: tail =>
+        val value = determineValue(prev, str, firstVal)
+        println(s"val: $value, acc: $acc")
+        getTotal(tail, acc + value, head.toString.toInt, firstVal, s"$track$value")
     }
   }
 }

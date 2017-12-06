@@ -17,14 +17,24 @@ class Day1Spec extends FunSpecLike
     it("should get 3 for 1122") {
       d.work("1122") shouldBe 3
     }
-    it("should get 1 for 1111") {
-      d.work("1111") shouldBe 1
+    it("should get 4 for 1111") {
+      d.work("1111") shouldBe 4
+    }
+    it("should get 5 for 211112") {
+      d.work("211112") shouldBe 3
+    }
+    it("should get 3 for 23111123") {
+      d.work("23111123") shouldBe 1
     }
     it("should get 0 for 1234") {
       d.work("1234") shouldBe 0
     }
     it("should get 9 for 91212129") {
       d.work("91212129") shouldBe 9
+    }
+    it("should add up the track") {
+      val x = scala.io.Source.fromFile("input/Day1/track").mkString
+      println(x.map(_.toString.toInt).toList.sum)
     }
   }
 }
