@@ -34,4 +34,20 @@ class Day2Spec extends FunSpecLike
       x.doWork(s) shouldBe (199 + 497 + 798)
     }
   }
+  describe("doWorkPart2") {
+    val x = new Day2Part2
+
+    it("should process the file") {
+      x.getFileAndDoWork
+    }
+
+    it("should get 9") {
+      val s =
+        """5 9 2 8
+          |9 4 7 3
+          |3 8 6 5""".stripMargin
+
+      x.doWork(s) shouldBe 9
+    }
+  }
 }
