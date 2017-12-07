@@ -30,3 +30,31 @@ class Day1 {
     }
   }
 }
+
+class Day1Part2 {
+  def getFileAndDoWork = {
+    val x = scala.io.Source.fromFile("input/Day1/input").mkString
+    println(work(x))
+  }
+
+  def work(x: String): Int = {
+    val captchaArray = x.toList.map(_.toString.toInt).toArray
+    var total = 0
+    for (i <- 0 to captchaArray.length - 1) {
+      total += determineValue(captchaArray, i)
+    }
+
+    total
+  }
+
+  def determineValue(captchaArray: Array[Int], currIdx: Int): Int = {
+    val offset = (captchaArray.length / 2)
+    val next = if ((captchaArray.length - 1) < (currIdx + offset)) {
+      val idx = currIdx + offset - captchaArray.length
+      captchaArray(idx)
+    } else captchaArray(currIdx + offset)
+    val curr = captchaArray(currIdx)
+
+    if (curr == next) curr else 0
+  }
+}

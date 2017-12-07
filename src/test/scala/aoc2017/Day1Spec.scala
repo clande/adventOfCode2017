@@ -33,4 +33,30 @@ class Day1Spec extends FunSpecLike
       d.work("91212129") shouldBe 9
     }
   }
+
+  describe("Day1Part2") {
+    val d = new Day1Part2
+
+    it("should print the input file") {
+      d.getFileAndDoWork
+    }
+    it("should get 6 for 1212") {
+      d.work("1212") shouldBe 6
+    }
+    it("should get 0 for 1221") {
+      d.work("1221") shouldBe 0
+    }
+    it("should get 4 for 123425") {
+      d.work("123425") shouldBe 4
+    }
+    it("should get 12 for 123123") {
+      d.work("123123") shouldBe 12
+    }
+    it("should get 0 for 1234") {
+      d.work("1234") shouldBe 0
+    }
+    it("should get 4 for 12131415") {
+      d.work("12131415") shouldBe 4
+    }
+  }
 }
