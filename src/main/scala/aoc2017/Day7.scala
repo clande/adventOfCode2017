@@ -21,7 +21,7 @@ class Day7 {
 
     val name = tokens(0)
     val weight = if (tokens.length == 1) 0 else tokens(1).stripPrefix("(").stripSuffix(")").toInt
-    var newNode = Node(name, weight, children, null) //TODO: look up the nodes
+    var newNode = Node(name, weight, children, null)
 
     val node = if(nodes.contains(newNode.name)) {
       val preExistingNode = nodes(name)
