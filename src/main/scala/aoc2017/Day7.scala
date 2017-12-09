@@ -2,7 +2,7 @@ package aoc2017
 
 import scala.collection.mutable
 
-case class Node(name: String, var weight: Int, var children: List[Node], var parent: Node)
+case class Node(name: String, var weight: Int, var children: List[Node], var parent: Node, var childrenWeight: Int)
 
 class Day7 {
   val nodes = mutable.HashMap[String, Node]()
@@ -16,12 +16,12 @@ class Day7 {
 
     var children = tokens.length match {
       case l if (l <= 2) => Nil
-      case _ => tokens.slice(3, tokens.length - 1).map(processEntry(_)).toList
+      case _ => tokens.slice(3, tokens.length).map(processEntry(_)).toList
     }
 
     val name = tokens(0)
     val weight = if (tokens.length == 1) 0 else tokens(1).stripPrefix("(").stripSuffix(")").toInt
-    var newNode = Node(name, weight, children, null)
+    var newNode = Node(name, weight, children, null, children.)
 
     val node = if(nodes.contains(newNode.name)) {
       val preExistingNode = nodes(name)

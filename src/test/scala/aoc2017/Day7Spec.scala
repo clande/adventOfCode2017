@@ -11,9 +11,9 @@ class Day7Spec extends FunSpecLike
   describe("doWork") {
     val x = new Day7
 
-//    it("should process the file") {
-//      x.getFileAndDoWork
-//    }
+    it("should process the file") {
+      x.getFileAndDoWork
+    }
 
     it("should get thnk") {
       val input = """pbga (66)
@@ -29,7 +29,7 @@ class Day7Spec extends FunSpecLike
                     |ugml (68) -> gyxo, ebii, jptl
                     |gyxo (61)
                     |cntj (57)""".stripMargin
-      x.doWork(input) shouldBe "tnhk"
+      x.doWork(input) shouldBe "tknk"
     }
   }
 }
