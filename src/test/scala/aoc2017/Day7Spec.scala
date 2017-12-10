@@ -15,7 +15,7 @@ class Day7Spec extends FunSpecLike
       x.getFileAndDoWork
     }
 
-    it("should get thnk") {
+    it("should get tknk") {
       val input = """pbga (66)
                     |xhth (57)
                     |ebii (61)
@@ -29,7 +29,7 @@ class Day7Spec extends FunSpecLike
                     |ugml (68) -> gyxo, ebii, jptl
                     |gyxo (61)
                     |cntj (57)""".stripMargin
-      x.doWork(input) shouldBe "tknk"
+      x.doWork(input) shouldBe 60
     }
   }
 }
