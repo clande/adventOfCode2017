@@ -2,7 +2,7 @@ package aoc2017
 
 class DayX {
   def getFileAndDoWork = {
-    val x = scala.io.Source.fromFile("input/DayX/input").mkString.toInt
+    val x = scala.io.Source.fromFile("input/DayX").mkString.toInt
     println(doWork(x))
   }
 
