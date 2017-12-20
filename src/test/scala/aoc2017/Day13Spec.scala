@@ -12,7 +12,7 @@ class Day13Spec extends FunSpecLike
     val x = new Day13
 
     it("should process the file") {
-      x.getFileAndDoWork
+      println(x.getFileAndDoWork)
     }
 
     it("should get 24") {
@@ -20,7 +20,7 @@ class Day13Spec extends FunSpecLike
                     |1: 2
                     |4: 4
                     |6: 4""".stripMargin
-      x.doWork(input) shouldBe 24
+      x.doWork(input) shouldBe 10
     }
   }
 }
