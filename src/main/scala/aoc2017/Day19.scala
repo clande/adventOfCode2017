@@ -80,18 +80,20 @@ class Day19 {
     (newX, newY, newDirection)
   }
 
-  def doWork(input: String): String = {
+  def doWork(input: String): (String, Int) = {
     val lines = input.split("\n")
     val charMap = lines.map(_.toCharArray)
     val mapLength = charMap(0).length
     var (x, y) = (0,0)
     var direction: String = "down"
     var pathString = ""
+    var steps: Seq[(Int, Int, Char)] = Nil
 
     //find entry point
     (0 to mapLength - 1).foreach (i => if (!getChar(charMap,i,0).isWhitespace) x = i)
 
     while((x,y) != (-1,-1)){
+      if(!getChar(charMap,x,y).isWhitespace) steps = steps :+ (x,y,getChar(charMap,x,y))
       val (x2, y2, d) = findNextMapPosition(charMap, x, y, direction)
       x = x2
       y = y2
@@ -99,6 +101,8 @@ class Day19 {
       if (getChar(charMap,x,y).isLetter) pathString += getChar(charMap,x,y)
     }
 
-    pathString
+    println(steps)
+
+    (pathString, steps.length)
   }
 }

@@ -11,12 +11,13 @@ class Day19Spec extends FunSpecLike
   describe("doWork") {
     val x = new Day19
 
-//    it("should process the file") {
-//      x.getFileAndDoWork
-//    }
+    it("should process the file") {
+      val (s, c) = x.getFileAndDoWork("input/Day19")
+      println(s"$s, $c")
+    }
 
     it("should get ABCDEF") {
-      x.getFileAndDoWork("input/Day19-2") shouldBe "ABCDEF"
+      x.getFileAndDoWork("input/Day19-2") shouldBe ("ABCDEF", 38)
     }
   }
 }
